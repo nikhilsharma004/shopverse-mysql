@@ -17,7 +17,14 @@ ShopVerse is a full-stack e-commerce resume project inspired by modern marketpla
 - Category and deal sections
 - Product cards with ratings, pricing, discount badges, and delivery text
 - Cart drawer with quantity controls
-- User registration and login
+- User registration/login with BCrypt password hashing and JWT-style token response
+- Profile modal with editable contact details and addresses
+- Order history page
+- Admin panel for product management
+- Seller dashboard with inventory metrics and product listing form
+- Payment method UI for UPI, card, net banking, EMI, and cash on delivery
+- Price and rating filters
+- Local product image assets
 - Checkout/order creation API
 - MySQL database connection
 - Seed products inserted automatically
@@ -74,6 +81,20 @@ POST /api/auth/register
 POST /api/auth/login
 ```
 
+Product management APIs:
+
+```text
+POST   /api/products
+PUT    /api/products/{id}
+DELETE /api/products/{id}
+```
+
+Order history:
+
+```text
+GET /api/orders?userId=1
+```
+
 ## Manual Run
 
 Backend:
@@ -95,4 +116,4 @@ npm run dev
 
 ## Resume Pitch
 
-Built ShopVerse, a full-stack e-commerce platform using Java Spring Boot, MySQL, React, and TypeScript. Implemented REST APIs for products, user registration/login, cart-ready catalog data, checkout/order creation, JPA entity relationships, MySQL persistence, seed data, responsive marketplace UI, search/filtering, and one-command local startup.
+Built ShopVerse, a full-stack e-commerce platform using Java Spring Boot, MySQL, React, and TypeScript. Implemented REST APIs for products, BCrypt login, JWT-style token responses, order history, admin product management, seller dashboard, checkout/order creation, JPA entity relationships, MySQL persistence, local image assets, responsive marketplace UI, search/filtering, and one-command local startup.

@@ -30,6 +30,7 @@ public class AppUser {
     private String password;
 
     private String address;
+    private String role;
 
     public Long getId() {
         return id;
@@ -74,5 +75,12 @@ public class AppUser {
     public void setAddress(String address) {
         this.address = address;
     }
-}
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}

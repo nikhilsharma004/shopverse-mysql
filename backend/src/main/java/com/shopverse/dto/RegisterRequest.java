@@ -9,7 +9,7 @@ public record RegisterRequest(
         @Email String email,
         @NotBlank String phone,
         String address,
+        String role,
         @Size(min = 6) String password
 ) {
 }
-

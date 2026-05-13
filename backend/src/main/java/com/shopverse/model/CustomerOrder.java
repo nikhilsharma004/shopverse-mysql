@@ -33,6 +33,9 @@ public class CustomerOrder {
     @NotBlank
     private String address;
 
+    private Long userId;
+    private String paymentMethod;
+    private String orderStatus;
     private BigDecimal totalAmount;
     private LocalDateTime createdAt;
 
@@ -75,6 +78,30 @@ public class CustomerOrder {
         this.address = address;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
     public BigDecimal getTotalAmount() {
         return totalAmount;
     }
@@ -95,4 +122,3 @@ public class CustomerOrder {
         return items;
     }
 }
-

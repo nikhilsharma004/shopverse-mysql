@@ -10,9 +10,11 @@ public record OrderResponse(
         String email,
         String phone,
         String address,
+        Long userId,
+        String paymentMethod,
+        String orderStatus,
         BigDecimal totalAmount,
         LocalDateTime createdAt,
         List<OrderItemResponse> items
 ) {
 }
-

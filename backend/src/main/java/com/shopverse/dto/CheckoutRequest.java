@@ -11,7 +11,8 @@ public record CheckoutRequest(
         @Email String email,
         @NotBlank String phone,
         @NotBlank String address,
+        Long userId,
+        @NotBlank String paymentMethod,
         @NotEmpty List<@Valid CartItemRequest> items
 ) {
 }
-

@@ -12,6 +12,7 @@ import com.shopverse.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +33,9 @@ public class OrderService {
         order.setEmail(request.email());
         order.setPhone(request.phone());
         order.setAddress(request.address());
+        order.setUserId(request.userId());
+        order.setPaymentMethod(request.paymentMethod());
+        order.setOrderStatus("PLACED");
         order.setCreatedAt(LocalDateTime.now());
 
         BigDecimal total = BigDecimal.ZERO;
@@ -68,6 +72,9 @@ public class OrderService {
                 order.getEmail(),
                 order.getPhone(),
                 order.getAddress(),
+                order.getUserId(),
+                order.getPaymentMethod(),
+                order.getOrderStatus(),
                 order.getTotalAmount(),
                 order.getCreatedAt(),
                 order.getItems().stream()
@@ -81,5 +88,12 @@ public class OrderService {
                         .toList()
         );
     }
-}
 
+    @Transactional(readOnly = true)
+    public List<OrderResponse> findHistory(Long userId, String email) {
+        List<CustomerOrder> orders = userId != null
+                ? orderRepository.findByUserIdOrderByCreatedAtDesc(userId)
+                : orderRepository.findByEmailIgnoreCaseOrderByCreatedAtDesc(email);
+        return orders.stream().map(this::toResponse).toList();
+    }
+}

@@ -25,7 +25,7 @@ import {
   User,
   X
 } from "lucide-react";
-import "./styles.css";
+// import "./styles.css";
 
 type Product = {
   id: number;
